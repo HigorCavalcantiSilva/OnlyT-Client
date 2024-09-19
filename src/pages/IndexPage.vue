@@ -102,11 +102,8 @@ export default defineComponent({
     if (this.port == null || this.port == "")
       localStorage.setItem("port_onlyt", "8096");
 
-    if (this.host == null || this.host == "" || this.host == "null") {
-      alert("Por favor insira o IP/Host na tela de configurações");
-      this.$router.push("/config");
-      return;
-    }
+    if (this.host == null || this.host == "" || this.host == "null")
+      localStorage.setItem("ip_onlyt", location.hostname);
 
     this.getTalks();
   },

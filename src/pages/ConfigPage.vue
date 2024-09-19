@@ -45,7 +45,12 @@ export default defineComponent({
       const regex =
         /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
-      if (this.host != null && this.host != "" && !regex.test(this.host))
+      if (
+        this.host != null &&
+        this.host != "" &&
+        this.host != "localhost" &&
+        !regex.test(this.host)
+      )
         return alert("ERRO! FORMATO DE IP INVÁLIDO");
 
       localStorage.setItem("ip_onlyt", this.host);
