@@ -99,7 +99,7 @@ export default defineComponent({
     };
   },
   created() {
-    if (this.port == null || this.port == "")
+    if (this.port == null || this.port == "" || this.port == "null")
       localStorage.setItem("port_onlyt", "8096");
 
     if (this.host == null || this.host == "" || this.host == "null")
@@ -273,7 +273,9 @@ export default defineComponent({
           .split(".")[0]
           .split(":");
 
-        this.currentDone = minutes * 60 + seconds;
+        this.currentDone =
+          parseInt(minutes) * 60 + parseInt(seconds.split(".")[0]);
+
         this.adaptTimer(status.targetSeconds - this.currentDone);
         this.initCountdown(status.talkId);
       }
