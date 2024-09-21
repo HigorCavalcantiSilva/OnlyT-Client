@@ -99,11 +99,15 @@ export default defineComponent({
     };
   },
   created() {
-    if (this.port == null || this.port == "" || this.port == "null")
+    if (this.port == null || this.port == "" || this.port == "null") {
       localStorage.setItem("port_onlyt", "8096");
+      this.port = 8096;
+    }
 
-    if (this.host == null || this.host == "" || this.host == "null")
+    if (this.host == null || this.host == "" || this.host == "null") {
       localStorage.setItem("ip_onlyt", location.hostname);
+      this.host = location.hostname;
+    }
 
     this.getTalks();
   },
